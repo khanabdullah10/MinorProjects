@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Console appender that writes to STDOUT (standard output) -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- Pattern that writes a newline, effectively silencing logs -->
+            <pattern>%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger configuration that applies to all loggers -->
+    <root level="OFF">
+        <!-- Refers to the STDOUT appender, which is now properly defined above -->
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!-- Specific logger configurations to silence Hibernate and related loggers -->
+    <logger name="org.hibernate" level="OFF"/>
+    <logger name="org.hibernate.SQL" level="OFF"/>
+    <logger name="org.hibernate.tool.hbm2ddl" level="OFF"/>
+    <logger name="ch.qos.logback" level="OFF"/>
+
+</configuration>
